@@ -1,0 +1,48 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--primary);
+  .bg-shade {
+    z-index: var(--level-one);
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 101%;
+    width: 100%;
+    background: var(--black-fade-80);
+    background: radial-gradient(
+      110.12% 133.56% at 80.14% -14.28%,
+      rgba(0, 0, 0, 0.02) 35.49%,
+      #000000f4 71.25%
+    );
+  }
+  .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--ground);
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+  }
+  .tag-line {
+    z-index: var(--level-two);
+    position: absolute;
+    bottom: -10vh;
+    left: -5vh;
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-section-header-plus);
+    font-weight: var(--xbold);
+    line-height: 70%;
+    text-transform: uppercase;
+    .color {
+      color: var(--primary);
+    }
+    .white {
+      color: var(--white);
+    }
+  }
+}

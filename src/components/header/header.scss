@@ -1,0 +1,9 @@
+.header-nav {
+  z-index: var(--level-nine);
+  position: fixed;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7vh 7vw;
+}

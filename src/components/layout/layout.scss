@@ -1,0 +1,21 @@
+.layout {
+  position: relative;
+  //remove
+  min-height: 300vh;
+  //remove
+  height: max-content;
+  width: 100vw;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  .scroll-progress {
+    z-index: var(--level-nine);
+    position: fixed;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--primary);
+    transition: var(--transition-2-smooth);
+  }
+}

@@ -1,0 +1,16 @@
+.about {
+  min-height: 110vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__blurb {
+    padding: 0 10vw;
+    padding-top: 10vw;
+    text-align: left;
+    font-size: var(--text-blurb);
+    font-weight: var(--medium);
+    span {
+      color: var(--primary);
+    }
+  }
+}
