@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 import { Header } from '../header/header'
 import { Footer } from '../footer/footer'
@@ -30,28 +30,7 @@ export const Layout = ({ children }) => {
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ x: '-100vw' }}
-            animate={{
-              x: 0,
-              transition: {
-                duration: 0.4,
-                ease: [0.6, 0.05, -0.01, 0.9],
-              },
-            }}
-            exit={{
-              x: '-100vw',
-              transition: {
-                duration: 0.4,
-                ease: [0.6, 0.05, -0.01, 0.9],
-              },
-            }}
-            className='menu__animation-wrapper'
-          >
-            <NavMenu />
-          </motion.div>
-        )}
+        {menuOpen && <NavMenu />}
       </AnimatePresence>
       <Header toggleMenu={() => setMenuOpen(!menuOpen)} />
       {children}
