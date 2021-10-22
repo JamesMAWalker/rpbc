@@ -9,4 +9,38 @@
   & > * {
     cursor: pointer;
   }
+  .logo {
+    height: 5vh;
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .menu-button {
+    position: relative;
+    & > * {
+      transition: var(--transition-1-smooth) !important;
+    }
+    &:hover {
+      .menu-text {
+        opacity: 1;
+        transform: translate(-120%, -50%);
+      }
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+  .menu-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-120%, 0%);
+    text-transform: uppercase;
+    font-size: var(--text-2xl);
+    font-weight: var(--bold);
+    opacity: 0;
+    transition: var(--transition-3-smooth);
+    color: var(--accent);
+  }
 }
