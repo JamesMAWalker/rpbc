@@ -1,9 +1,8 @@
-
 :root {
   /* tokens */
   /* font-family */
   --font-body: 'Work Sans', sans-serif;
-  
+
   /* palette */
   --full-black: rgb(0, 0, 0);
   --black: rgb(15, 15, 15);
@@ -22,7 +21,7 @@
   --white: hsl(0, 0%, 100%);
   --white-fade-20: hsla(0, 0%, 100%, 0.2);
   --forest: #067462;
-  --sprout: #8FFF00;
+  --sprout: #8fff00;
 
   /* z-indeces */
   --base-two: -200;
@@ -113,23 +112,22 @@
   --title-block: 100px;
   --title-block-lg: 120px;
 
-
   // * role-based tokens * //
 
   /* colors */
   --primary: var(--forest);
   --background: var(--full-black);
   --text-color: var(--white);
-  
+
   --primary-inv: var(--blue-inv);
   --background-inv: var(--black);
   --text-color-inv: var(--white);
-  
+
   /* nightmode colors */
   // --primary: var(--blue-inv);
   // --background: var(--black);
   // --text-color: var(--white);
-  
+
   // --primary-inv: var(--blue);
   // --background-inv: var(--white);
   // --text-color-inv: var(--black);
@@ -140,32 +138,35 @@
 
   /* transitions */
   --transition-1: all 1s var(--punchitchewy);
-  --transition-2: all .6s var(--punchitchewy);
+  --transition-2: all 0.6s var(--punchitchewy);
   --transition-3: all 0.3s var(--punchitchewy);
   --transition-4: all 0.1s var(--punchitchewy);
   --transition-1-smooth: all 1s var(--smooth);
-  --transition-2-smooth: all .6s var(--smooth);
+  --transition-2-smooth: all 0.6s var(--smooth);
   --transition-3-smooth: all 0.3s var(--smooth);
   --transition-4-smooth: all 0.1s var(--smooth);
 
   /* shadows */
   --shadow: 4px 4px 12px var(--black-fade-10);
 
-  
   /* text size */
   --text-section-header: 175px;
   --text-section-header-plus: 325px;
   --text-hero: var(--text-7xl);
   --text-hero-plus: var(--text-9xl);
   --text-blurb: var(--text-3xl);
-  --text-header-plus: var(--text-4xl);
+  --text-header: var(--text-4xl);
+  --text-header-plus: var(--text-5xl);
   --text-display: var(--text-6xl);
   --text-prose: var(--text-2xl);
 
   /* spacing */
   --layout-margin-out: var(--vw-md);
   --layout-margin-in: var(--vw-2xl);
-  
+
+  /* container sizing */
+  --outer-size: 86vw;
+  --inner-size: 60vw;
 }
 
 /* role-based token adjustments per breakpoint */
