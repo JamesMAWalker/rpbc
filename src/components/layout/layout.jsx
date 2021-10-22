@@ -13,6 +13,7 @@ export const Layout = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   console.log('menuOpen: ', menuOpen)
 
+  // progress bar logic
   useEffect(() => {
     const totalHeight = layoutRef.current.clientHeight
     const maxScroll = totalHeight - window.innerHeight
@@ -26,6 +27,18 @@ export const Layout = ({ children }) => {
       window.removeEventListener('scroll')
     }
   }, [])
+  
+  // close menu on escape key
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () =>
+      window.removeEventListener('keydown', close)
+  }, [menuOpen])
 
   return (
     <main className='layout' ref={layoutRef}>
