@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import debounce from 'just-debounce-it'
 
 import './nav-menu.scss'
 import { Arrow } from '../svg/arrow'
@@ -34,15 +35,16 @@ export const NavMenu = () => {
   const [hoveredOption, setHoveredOption] = useState(null)
   const [vidCovered, setVidCovered] = useState(true)
 
-  const handleItemHover = (idx) => {
+  const handleItemHover = debounce((idx) => {
     setCurrentOption(menuOptions[idx])
     setHoveredOption(menuOptions[idx])
     setVidCovered(false)
-  }
-  const handleHoverEnd = (params) => {
+  }, 100)
+
+  const handleHoverEnd = debounce((params) => {
     setHoveredOption(null)
     setVidCovered(true)
-  }
+  }, 100)
 
   return (
     <motion.nav
@@ -99,7 +101,7 @@ export const NavMenu = () => {
           }}
         />
         <video
-          src={`https://res.cloudinary.com/jameswalker-work/video/upload/f_auto,q_60/v1634719147/Roots/${currentOption.vidUrlFrag}`}
+          src={`https://res.cloudinary.com/jameswalker-work/video/upload/f_auto,q_60/v1634719147/Roots/video/${currentOption.vidUrlFrag}`}
           className='bg-video'
           autoPlay
           muted
