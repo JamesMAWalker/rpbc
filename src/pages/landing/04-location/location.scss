@@ -4,4 +4,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  &__grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    gap: 0 var(--vw-sm);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__map {
+    height: 100%;
+    width: 100%;
+    .map {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+  }
 }
