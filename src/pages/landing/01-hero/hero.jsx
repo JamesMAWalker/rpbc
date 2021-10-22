@@ -12,7 +12,7 @@ export const Hero = () => {
         autoPlay
         muted
         loop
-      ></video>
+      />
       <h2 className='tag-line'>
         <div className='color'>
           DISC

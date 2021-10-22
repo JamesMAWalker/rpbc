@@ -1,5 +1,6 @@
 .nav-menu {
   z-index: var(--level-nine);
+  isolation: isolate;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,5 +9,112 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary);
+  background-color: var(--background);
+  .menu {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    width: 30%;
+    background-color: var(--primary);
+
+    &__label {
+      text-transform: uppercase;
+      font-size: var(--text-prose);
+      font-weight: var(--light);
+    }
+    &__options {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 55vh;
+      padding-top: 15vh;
+      padding-bottom: 30vh;
+      transform: translateX(65%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      .option {
+        position: relative;
+        width: max-content;
+        font-size: var(--text-header-plus);
+        font-weight: var(--xbold);
+        text-transform: uppercase;
+        transition: var(--transition-3-smooth);
+        &.hovered {
+          transform: translateX(10%);
+          .arrow-wrap {
+            transform: translate(10%, -50%);
+            svg {
+              transform: translateX(0);
+            }
+          }
+        }
+        .arrow-wrap {
+          position: absolute;
+          top: 50%;
+          left: -5vw;
+          transform: translateY(-50%);
+          height: 5vh;
+          width: 4vw;
+          overflow: hidden;
+          transition: var(--transition-3-smooth);
+          svg {
+            transform: translateX(-100%);
+            transition: var(--transition-3-smooth);
+          }
+        }
+      }
+    }
+  }
+  .displayed {
+    position: relative;
+    width: 70%;
+    .video-shade {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: -0.5vw;
+      height: 100%;
+      width: 71vw;
+      background-color: var(--black-fade-40);
+      transition: var(--transition-2-smooth);
+    }
+    .bg-video {
+      height: 100vh;
+      width: 70vw;
+      object-fit: cover;
+    }
+  }
+  .menu-footer {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    padding-bottom: var(--layout-margin-out);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .footer-content {
+      width: var(--outer-size);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .number {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .hours {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+  }
 }
