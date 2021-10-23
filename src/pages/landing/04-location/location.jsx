@@ -1,11 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
 import { Container } from '../../../components/container/container'
 
 import './location.scss'
 
 const locations = [
   {
-    name: 'Hải Châu',
+    name: 'An Thượng',
     address: `
       Tòa nhà, 
       Indochina Riverside Towers, Lầu 2, Đ. Trần Phú, 
@@ -15,7 +17,7 @@ const locations = [
     coordinates: '',
   },
   {
-    name: 'An Thượng',
+    name: 'Hải Châu',
     address: `
       Tòa nhà, 
       Indochina Riverside Towers, Lầu 2, Đ. Trần Phú, 
@@ -37,10 +39,21 @@ const locations = [
 ]
 
 export const Location = () => {
+  const [currentLocation, setCurrentLocation] =
+    useState(locations[0])
+
+  const setLocation = (idx) => {
+    const newLocation = locations[idx]
+    if (currentLocation === newLocation) {
+      setLocation(null)
+    } else {
+      setCurrentLocation(locations[idx])
+    }
+  }
 
   return (
     <section className='location'>
-      <Container column>
+      <Container classes='column'>
         <div className='location__grid'>
           <div className='location__map'>
             <img
@@ -49,17 +62,75 @@ export const Location = () => {
               className='map'
             />
           </div>
-          <div className='location__wrap'>
-            <ul className='locations'>
-              {locations.map(({ name, address, number }) => {
-                return (
-                  <li className='location-info' key={name}>
-                    <span>{name}</span>
-                    <span>{address}</span>
-                    <span>{number}</span>
-                  </li>
-                )
-              })}
+          <div className='location__info'>
+            <h3 className='location__header'>
+              Where to Find Us
+            </h3>
+            <ul className='location__list'>
+              {locations.map(
+                ({ name, address, number }, idx) => {
+                  const isOpen =
+                    name === currentLocation?.name
+                  return (
+                    <li
+                      className='location__list--item'
+                      onClick={() => setLocation(idx)}
+                    >
+                      <div
+                        className={`selector-btn ${
+                          isOpen ? 'accent' : ''
+                        }`}
+                      >
+                        <motion.span
+                          animate={{
+                            rotate: isOpen ? 0 : 45,
+                            x: 3,
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            ease: [0.6, 0.05, -0.01, 0.9],
+                          }}
+                        />
+                        <motion.span
+                          animate={{
+                            rotate: isOpen ? 0 : -45,
+                            x: -3,
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            ease: [0.6, 0.05, -0.01, 0.9],
+                          }}
+                        />
+                      </div>
+                      <span
+                        className='location-info'
+                        key={name}
+                      >
+                        <span
+                          className={`title ${
+                            isOpen ? 'open' : ''
+                          }`}
+                        >
+                          {name}
+                        </span>
+                        <motion.div
+                          className='content'
+                          animate={{
+                            height: isOpen ? '100%' : '0px',
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            ease: [0.6, 0.05, -0.01, 0.9],
+                          }}
+                        >
+                          <span>{address}</span>
+                          <span>{number}</span>
+                        </motion.div>
+                      </span>
+                    </li>
+                  )
+                }
+              )}
             </ul>
           </div>
         </div>
