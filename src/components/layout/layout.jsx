@@ -11,7 +11,6 @@ export const Layout = ({ children }) => {
   const layoutRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
-  console.log('menuOpen: ', menuOpen)
 
   // progress bar logic
   useEffect(() => {
@@ -43,9 +42,9 @@ export const Layout = ({ children }) => {
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
-        {menuOpen && <NavMenu />}
+        {menuOpen && <NavMenu menuOpen={menuOpen} />}
       </AnimatePresence>
-      <Header toggleMenu={() => setMenuOpen(!menuOpen)} />
+      <Header menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} />
       {children}
       <div
         className='scroll-progress'
