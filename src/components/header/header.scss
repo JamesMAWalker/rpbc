@@ -18,8 +18,8 @@
   }
   .menu-button {
     position: relative;
-    & > * {
-      transition: var(--transition-1-smooth) !important;
+    path {
+      transition: var(--transition-3-smooth);
     }
     &:hover {
       .menu-text {
@@ -31,6 +31,12 @@
       }
     }
   }
+  .icon-wrap {
+    svg {
+      height: var(--icon-med);
+      width: var(--icon-med);
+    }
+  }
   .menu-text {
     position: absolute;
     top: 50%;
@@ -40,7 +46,7 @@
     font-size: var(--text-2xl);
     font-weight: var(--bold);
     opacity: 0;
-    transition: var(--transition-3-smooth);
     color: var(--accent);
+    transition: var(--transition-3-smooth);
   }
 }
