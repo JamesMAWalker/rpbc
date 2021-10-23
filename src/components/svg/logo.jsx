@@ -34,22 +34,22 @@ export const Logo = () => {
         />
         <path
           d='M1.71008 11.2073C22.1351 11.2073 33.4646 9.77129 33.4646 37.6939'
-          stroke='var(--white)'
+          stroke='var(--accent)'
           strokeWidth='5.23482'
         />
         <path
           d='M32.9859 35.7785C11.4439 36.736 1.03838 30.4183 2.47454 9.03799'
-          stroke='var(--white)'
+          stroke='var(--accent)'
           strokeWidth='5.23482'
         />
         <path
           d='M75.9427 30.0856C59.1492 29.7344 48.9112 28.6797 48.431 51.638'
-          stroke='var(--white)'
+          stroke='var(--accent)'
           strokeWidth='5.54915'
         />
         <path
           d='M48.3116 50.3228C66.0071 51.4804 74.1721 47.1105 73.3588 29.5067'
-          stroke='var(--white)'
+          stroke='var(--accent)'
           strokeWidth='5.54915'
         />
       </g>
