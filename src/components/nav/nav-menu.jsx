@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import debounce from 'just-debounce-it'
 
 import './nav-menu.scss'
 import { Arrow } from '../svg/arrow'
+import { Facebook } from '../svg/facebook'
+import { Instagram } from '../svg/instagram'
 
 const menuOptions = [
   {
@@ -28,7 +30,51 @@ const menuOptions = [
   },
 ]
 
-export const NavMenu = () => {
+const slideAnimation = {
+  visible: {
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
+  hidden: {
+    x: '-100vw',
+    transition: {
+      duration: 0.4,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
+}
+
+const containerAnimation = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.75,
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: .4,
+      staggerChildren: 0.12,
+    },
+  },
+}
+
+const cascadeAnimation = {
+  hidden: {
+    opacity: 0,
+    y: -50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+}
+
+export const NavMenu = ({ menuOpen }) => {
   const [currentOption, setCurrentOption] = useState(
     menuOptions[0]
   )
@@ -48,46 +94,44 @@ export const NavMenu = () => {
 
   return (
     <motion.nav
-      initial={{ x: '-100vw' }}
-      animate={{
-        x: 0,
-        transition: {
-          duration: 0.4,
-          ease: [0.6, 0.05, -0.01, 0.9],
-        },
-      }}
-      exit={{
-        x: '-100vw',
-        transition: {
-          duration: 0.4,
-          ease: [0.6, 0.05, -0.01, 0.9],
-        },
-      }}
+      variants={slideAnimation}
+      initial='hidden'
+      animate='visible'
+      exit='hidden'
       className='nav-menu'
     >
       <div className='menu'>
-        <ul className='menu__options'>
-          <div className='menu__label'>Menu</div>
-          {menuOptions.map(({ title }, idx) => {
-            return (
-              <li
-                className={`option ${
-                  hoveredOption?.title === title
-                    ? 'hovered'
-                    : ''
-                }`}
-                key={title}
-                onMouseOver={() => handleItemHover(idx)}
-                onMouseLeave={handleHoverEnd}
-              >
-                <span className='arrow-wrap'>
-                  <Arrow />
-                </span>
-                {title}
-              </li>
-            )
-          })}
-        </ul>
+        <AnimatePresence>
+          <motion.ul 
+            className='menu__options'
+            variants={containerAnimation}
+            initial='hidden'
+            animate='visible'
+            exit='hidden'
+          >
+            <motion.div className='menu__label' variants={cascadeAnimation}>Menu</motion.div>
+            {menuOptions.map(({ title }, idx) => {
+              return (
+                <motion.li
+                  className={`option ${
+                    hoveredOption?.title === title
+                      ? 'hovered'
+                      : ''
+                  }`}
+                  key={title}
+                  onMouseOver={() => handleItemHover(idx)}
+                  onMouseLeave={handleHoverEnd}
+                  variants={cascadeAnimation}
+                >
+                  <span className='arrow-wrap'>
+                    <Arrow />
+                  </span>
+                  {title}
+                </motion.li>
+              )
+            })}
+          </motion.ul>
+        </AnimatePresence>
       </div>
       <div className='displayed'>
         <div
@@ -115,10 +159,14 @@ export const NavMenu = () => {
             Mon - Sun • 8:00 - 23:00
           </div>
           <div className='social'>
-            <span>FB</span>
+            <span>
+              <Facebook />
+            </span>
             <span>&nbsp;</span>
             <span>&nbsp;</span>
-            <span>IG</span>
+            <span>
+              <Instagram />
+            </span>
           </div>
         </div>
       </div>
