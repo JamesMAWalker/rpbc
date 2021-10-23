@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     .desc-title {
+      z-index: var(--level-one);
       position: absolute;
       top: -8%;
       left: 1%;
@@ -45,6 +46,9 @@
     font-size: var(--text-10xl);
     font-weight: var(--xbold);
     line-height: 80%;
+    span {
+      color: var(--primary);
+    }
   }
   &__price {
     margin: 0;

@@ -33,6 +33,7 @@ export const DailyFave = () => {
             <span>Daily</span>
             <span className='emph'>Favorite</span>
           </h3>
+          <div className="darkening-shade"/>
           <img
             className='fave__img'
             src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_auto:good/v1634895950/Roots/feature-image/${imgUrlFrag}`}
