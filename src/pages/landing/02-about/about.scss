@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   &__blurb {
-    padding: 0 10vw;
-    padding-top: 10vw;
+    padding: 0 var(--vw-lg);
+    padding-top: var(--vw-lg);
     text-align: left;
     font-size: var(--text-blurb);
     font-weight: var(--medium);
