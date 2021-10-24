@@ -1,8 +1,63 @@
 .friends {
-  height: 100vh;
+  height: max-content;
+  min-height: 120vh;
   width: 100vw;
+  padding-top: var(--vh-xl);
   background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
+  &__img-wrap {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .desc-title {
+      position: absolute;
+      top: -8%;
+      left: 1%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      font-size: var(--text-4xl);
+      text-transform: lowercase;
+      line-height: 82.5%;
+      .emph {
+        color: var(--primary);
+      }
+    }
+  }
+  &__img {
+    height: 100%;
+    width: 90%;
+    object-fit: cover;
+  }
+  &__title {
+    z-index: var(--level-one);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0;
+    margin-top: calc(-1 * var(--text-10xl));
+    text-transform: uppercase;
+    font-size: var(--text-10xl);
+    font-weight: var(--xbold);
+    line-height: 80%;
+  }
+  &__content-wrap {
+    padding: 0 var(--vw-lg);
+    padding-top: var(--intrasection-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &:last-child {
+      padding-bottom: var(--intrasection-margin);
+    }
+  }
 }

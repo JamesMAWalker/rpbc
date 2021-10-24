@@ -1,0 +1,23 @@
+.friend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__logo {
+
+  }
+  &__blurb {
+    padding-top: var(--element-margin);
+    font-size: var(--text-blurb);
+    line-height: 110%;
+  }
+  &__visit {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    color: var(--accent);
+    path {
+      fill: var(--accent);
+    }
+  }
+}
