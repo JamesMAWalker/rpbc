@@ -63,7 +63,7 @@
   --vh-lg: 9vh;
   --vh-xl: 13vh;
 
-  --vw-sm: 2.5vw;
+  --vw-sm: 4vw;
   --vw-md: 5vw;
   --vw-mlg: 7vw;
   --vw-lg: 9vw;
@@ -167,6 +167,8 @@
   /* spacing */
   --layout-margin-out: var(--vw-md);
   --layout-margin-in: var(--vw-2xl);
+  --intrasection-margin: var(--vh-xl);
+  --element-margin: var(--space-xl); 
 
   /* container sizing */
   --outer-size: 86vw;
