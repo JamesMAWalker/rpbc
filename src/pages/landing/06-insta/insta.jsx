@@ -30,12 +30,8 @@ export const Insta = () => {
 
   useEffect(() => {
     const scrollDistance = 30
-    console.log('scrollIndex from useEffect: ', scrollIndex)
+    
     setPhotoPosition(scrollDistance * scrollIndex)
-    console.log(
-      'photoPosition from useEffect: ',
-      photoPosition
-    )
   }, [scrollIndex])
 
   const scrollPhotos = (direction) => {
@@ -45,10 +41,6 @@ export const Insta = () => {
     
     const rightMax = scrollIndex <= -3 
     const leftMax = scrollIndex >= 0 
-    
-    console.log('rightMax: ', rightMax);
-    console.log('scrollIndex: ', scrollIndex);
-    console.log('arrowRight: ', arrowRight);
 
     if (arrowRight && !rightMax) {
       setScrollIndex(scrollIndex - 1)
