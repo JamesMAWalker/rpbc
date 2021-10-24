@@ -73,6 +73,7 @@ export const Location = () => {
                     name === currentLocation?.name
                   return (
                     <li
+                      key={name}
                       className='location__list--item'
                       onClick={() => setLocation(idx)}
                     >
