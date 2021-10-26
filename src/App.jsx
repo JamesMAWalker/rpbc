@@ -1,27 +1,35 @@
-import { useState } from 'react'
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
 import { Layout } from './components/layout/layout'
-import { Hero } from './pages/landing/01-hero/hero'
-import { About } from './pages/landing/02-about/about'
-import { DailyFave } from './pages/landing/03-daily-fave/daily-fave'
-import { Location } from './pages/landing/04-location/location'
-import { Friends } from './pages/landing/05-friends/friends'
-import { Insta } from './pages/landing/06-insta/insta'
+import { Landing } from './pages/landing/landing'
+import { CategoryMenu } from './pages/category-menu/category-menu'
 
 import './styles/_global.scss'
 import './styles/_imports.scss'
 
-function App() {
+const routes = [
+  {
+    name: 'home-page',
+    path: '/',
+    component: Landing,
+  },
+  {
+    name: 'menu-page',
+    path: '/menu',
+    component: CategoryMenu,
+  },
+]
 
+function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Layout>
-        <Hero />
-        <About />
-        <DailyFave/>
-        <Location/>
-        <Friends/>
-        <Insta/>
+        <Switch>
+          {routes.map(({ name, path, component }) => (
+            <Route key={name} exact path={path} component={component} />
+          ))}
+        </Switch>
       </Layout>
     </div>
   )
