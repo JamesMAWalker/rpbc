@@ -59,6 +59,26 @@
         object-position: center;
       }
     }
+    .btn-wrap {
+      height: 26vw;
+      width: 16vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h4 {
+        text-align: center;
+        font-size: var(--text-2xl);
+      }
+      span {
+        padding-top: var(--element-margin);
+        height: var(--icon-med);
+        width: var(--icon-med);
+      }
+      path {
+        fill: var(--white);
+      }
+    }
   }
   &__cta {
     padding: var(--vh-lg) var(--vw-lg);
@@ -66,6 +86,7 @@
     font-weight: var(--bold);
     text-transform: lowercase;
     a {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;

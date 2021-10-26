@@ -30,17 +30,16 @@ export const Insta = () => {
 
   useEffect(() => {
     const scrollDistance = 30
-    
+
     setPhotoPosition(scrollDistance * scrollIndex)
   }, [scrollIndex])
 
   const scrollPhotos = (direction) => {
-    
     const arrowRight = direction < 0
     const arrowLeft = direction > 0
-    
-    const rightMax = scrollIndex <= -3 
-    const leftMax = scrollIndex >= 0 
+
+    const rightMax = scrollIndex <= -4
+    const leftMax = scrollIndex >= 0
 
     if (arrowRight && !rightMax) {
       setScrollIndex(scrollIndex - 1)
@@ -68,7 +67,7 @@ export const Insta = () => {
             </div>
             <div className='arrow-wrap'>
               <ShortArrow
-                filled={scrollIndex > -3}
+                filled={scrollIndex > -4}
                 direction='right'
                 scroll={() => scrollPhotos(-1)}
               />
@@ -76,6 +75,11 @@ export const Insta = () => {
           </div>
         </div>
         <div
+          onWheel={(e) => {
+            const direction =
+              e.nativeEvent.wheelDelta > 1 ? 1 : -1
+            scrollPhotos(direction)
+          }}
           className='insta__photos'
           style={{
             transform: `translateX(${photoPosition}vw)`,
@@ -92,9 +96,18 @@ export const Insta = () => {
               </div>
             )
           })}
+          <a
+            className='btn-wrap'
+            href='https://www.instagram.com/roots.vietnam/'
+          >
+            <h4 className='see-more'>see more on insta</h4>
+            <span>
+              <Instagram />
+            </span>
+          </a>
         </div>
         <div className='insta__cta'>
-          <a>
+          <a href='https://www.instagram.com/roots.vietnam/'>
             <span className='icon'>
               <Instagram />
             </span>
