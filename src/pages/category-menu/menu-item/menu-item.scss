@@ -1,0 +1,56 @@
+.menu-item {
+  .item-title {
+    margin-top: var(--element-margin);
+    font-size: var(--text-2xl);
+    font-weight: var(--xbold);
+    text-transform: uppercase;
+    color: var(--primary);
+    line-height: 85%;
+  }
+  .item-ingredients {
+    width: 75%;
+    height: 25%;
+    font-weight: var(--bold);
+  }
+  .item-notes {
+    svg {
+      height: var(--icon-sm);
+      width: var(--icon-sm);
+    }
+    path {
+      fill: var(--grey-50);
+    }
+  }
+  .item-buy {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+      display: flex;
+      align-items: center;
+      color: var(--accent);
+      font-weight: var(--xbold);
+      &:hover {
+        svg {
+          transform: translate(-80%, -40%) scale(1.5);
+        }
+      }
+    }
+    svg {
+      height: var(--icon-xs);
+      width: var(--icon-xs);
+      transform: translate(-120%, -40%) scale(1.5);
+    }
+    path {
+      fill: var(--accent);
+      stroke-width: 3px;
+      stroke: var(--accent);
+    }
+  }
+  .price {
+    text-transform: uppercase;
+    font-size: var(--text-xl);
+    font-weight: var(--bold);
+  }
+}
