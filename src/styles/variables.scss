@@ -111,8 +111,11 @@
   --title-block-sm: 75px;
   --title-block: 100px;
   --title-block-lg: 120px;
-  --icon-med: 37px;
+  --icon-xs: 17px;
   --icon-sm: 25px;
+  --icon-med: 37px;
+  --icon-lg: 45px;
+  --icon-xl: 55px;
 
   // * role-based tokens * //
 
@@ -173,6 +176,9 @@
   /* container sizing */
   --outer-size: 86vw;
   --inner-size: 54vw;
+
+  /* image sizing */
+  --feature-img-height: 60vh;
 }
 
 /* role-based token adjustments per breakpoint */
