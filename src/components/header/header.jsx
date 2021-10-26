@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { Logo } from '../svg/logo'
@@ -27,10 +28,12 @@ const switchAnimation = {
 export const Header = ({ toggleMenu, menuOpen }) => {
   return (
     <nav className='header-nav'>
-      <div className='logo'>
-        <Logo />
+      <div className='logo' onClick={() => toggleMenu(false)}>
+        <Link to='/'>
+          <Logo />
+        </Link>
       </div>
-      <div className='menu-button' onClick={toggleMenu}>
+      <div className='menu-button' onClick={() => toggleMenu(!menuOpen)}>
         {menuOpen && (
           <AnimatePresence>
             <motion.div
@@ -41,9 +44,7 @@ export const Header = ({ toggleMenu, menuOpen }) => {
               exit='hidden'
             >
               <CloseBtn />
-              <span className='menu-text'>
-                Close
-              </span>
+              <span className='menu-text'>Close</span>
             </motion.div>
           </AnimatePresence>
         )}{' '}
@@ -57,9 +58,7 @@ export const Header = ({ toggleMenu, menuOpen }) => {
               exit='hidden'
             >
               <MenuIcon />
-              <span className='menu-text'>
-                Menu
-              </span>
+              <span className='menu-text'>Menu</span>
             </motion.div>
           </AnimatePresence>
         )}
