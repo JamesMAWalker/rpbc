@@ -23,6 +23,7 @@
       font-weight: var(--light);
     }
     &__options {
+      cursor: pointer;
       position: absolute;
       top: 0;
       right: 0;
@@ -42,7 +43,7 @@
         text-transform: uppercase;
         transition: var(--transition-3-smooth);
         &.hovered {
-          transform: translateX(10%);
+          transform: translateX(10%) !important;
           .arrow-wrap {
             transform: translate(10%, -50%);
             svg {

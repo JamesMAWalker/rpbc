@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import debounce from 'just-debounce-it'
 
 import './nav-menu.scss'
@@ -74,7 +75,7 @@ const cascadeAnimation = {
   },
 }
 
-export const NavMenu = ({ menuOpen }) => {
+export const NavMenu = ({ menuOpen, closeMenu }) => {
   const [currentOption, setCurrentOption] = useState(
     menuOptions[0]
   )
@@ -122,11 +123,12 @@ export const NavMenu = ({ menuOpen }) => {
                   onMouseOver={() => handleItemHover(idx)}
                   onMouseLeave={handleHoverEnd}
                   variants={cascadeAnimation}
+                  onClick={closeMenu}
                 >
                   <span className='arrow-wrap'>
                     <Arrow />
                   </span>
-                  {title}
+                  <Link to='/menu'>{title}</Link>
                 </motion.li>
               )
             })}

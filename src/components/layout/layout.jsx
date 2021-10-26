@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, cloneElement } from 'react'
 import { AnimatePresence } from 'framer-motion'
 
 import { Header } from '../header/header'
@@ -42,9 +42,9 @@ export const Layout = ({ children }) => {
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
-        {menuOpen && <NavMenu menuOpen={menuOpen} />}
+        {menuOpen && <NavMenu menuOpen={menuOpen} closeMenu={() => setMenuOpen(false)}/>}
       </AnimatePresence>
-      <Header menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} />
+      <Header menuOpen={menuOpen} toggleMenu={setMenuOpen} />
       {children}
       <div
         className='scroll-progress'
