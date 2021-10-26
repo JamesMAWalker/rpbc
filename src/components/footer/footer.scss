@@ -25,6 +25,13 @@
     .social {
       display: flex;
       justify-content: flex-end;
+      svg {
+        height: var(--icon-sm);
+        width: var(--icon-sm);
+      }
+      path {
+        fill: var(--primary);
+      }
     }
   }
   .name {

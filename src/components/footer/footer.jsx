@@ -1,4 +1,6 @@
 import React from 'react'
+import { Facebook } from '../svg/facebook'
+import { Instagram } from '../svg/instagram'
 
 import './footer.scss'
 
@@ -11,10 +13,10 @@ export const Footer = () => {
           Mon - Sun • 8:00 - 23:00
         </div>
         <div className='social'>
-          <span>FB</span>
+          <span><Facebook /></span>
           <span>&nbsp;</span>
           <span>&nbsp;</span>
-          <span>IG</span>
+          <span><Instagram /></span>
         </div>
       </div>
       <div className='name'>
