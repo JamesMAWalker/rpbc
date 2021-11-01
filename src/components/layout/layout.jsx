@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, cloneElement } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
 import { Header } from '../header/header'
@@ -11,6 +12,7 @@ export const Layout = ({ children }) => {
   const layoutRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
 
   // progress bar logic
   useEffect(() => {
@@ -26,7 +28,12 @@ export const Layout = ({ children }) => {
       window.removeEventListener('scroll')
     }
   }, [])
-  
+
+  // scroll page to top on transition
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   // close menu on escape key
   useEffect(() => {
     const close = (e) => {
@@ -42,9 +49,17 @@ export const Layout = ({ children }) => {
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
-        {menuOpen && <NavMenu menuOpen={menuOpen} closeMenu={() => setMenuOpen(false)}/>}
+        {menuOpen && (
+          <NavMenu
+            menuOpen={menuOpen}
+            closeMenu={() => setMenuOpen(false)}
+          />
+        )}
       </AnimatePresence>
-      <Header menuOpen={menuOpen} toggleMenu={setMenuOpen} />
+      <Header
+        menuOpen={menuOpen}
+        toggleMenu={setMenuOpen}
+      />
       {children}
       <div
         className='scroll-progress'
