@@ -30,7 +30,7 @@
   .tag-line {
     z-index: var(--level-two);
     position: absolute;
-    bottom: -15vh;
+    bottom: -25vh;
     left: -5vh;
     margin: 0;
     padding: 0;
@@ -38,6 +38,10 @@
     font-weight: var(--xbold);
     line-height: 70%;
     text-transform: uppercase;
+    @media (max-width: 1024px) {
+      left: -1vh;
+      bottom: -5vh;
+    }
     .color {
       color: var(--primary);
     }
