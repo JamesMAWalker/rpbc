@@ -38,6 +38,7 @@
     }
   }
   &__photos {
+    user-select: none;
     margin-top: var(--intrasection-margin);
     display: flex;
     justify-content: space-evenly;

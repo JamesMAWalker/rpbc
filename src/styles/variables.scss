@@ -113,7 +113,7 @@
   --title-block-lg: 120px;
   --icon-xs: 17px;
   --icon-sm: 25px;
-  --icon-med: 37px;
+  --icon-med: 37px; 
   --icon-lg: 45px;
   --icon-xl: 55px;
 
@@ -183,21 +183,16 @@
 
 /* role-based token adjustments per breakpoint */
 
-// @media (max-width: 1024px) {
-//   :root {
-//     --content-margin: 25vh;
-//     --text-hero: var(--text-5xl);
-//     --text-hero-plus: var(--text-6xl);
-//     --text-section-header: var(--text-7xl);
-//     --text-section-header-plus: var(--text-9xl);
-//   }
-// }
-// @media (min-width: 2160px) {
-//   :root {
-//     --content-margin: 40vh;
-//     --text-hero: var(--text-9xl);
-//     --text-hero-plus: var(--text-11xl);
-//     --text-section-header: 275px;
-//     --text-section-header-plus: 375px;
-//   }
-// }
+@media (max-width: 1024px) {
+  :root {
+    --text-blurb: var(--text-2xl);
+    --text-section-header-plus: var(--text-9xl);
+  }
+}
+@media (min-width: 2160px) {
+  :root {
+    --text-section-header: 275px;
+    --text-section-header-plus: 425px;
+    --text-section-header-plus: 14vw;
+  }
+}

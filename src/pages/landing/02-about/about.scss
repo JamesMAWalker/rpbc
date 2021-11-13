@@ -12,5 +12,8 @@
     span {
       color: var(--primary);
     }
+    @media (max-width: 1024px) {
+      padding: 0;
+    }
   }
 }
