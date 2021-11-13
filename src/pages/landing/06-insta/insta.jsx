@@ -4,6 +4,8 @@ import { Container } from '../../../components/container/container'
 import { ShortArrow } from '../../../components/svg/arrow--short'
 import { Instagram } from '../../../components/svg/instagram'
 
+import { useKeyPress } from '../../../hooks/useKeyPress'
+
 import './insta.scss'
 
 const instaPhotos = [
@@ -28,6 +30,8 @@ export const Insta = () => {
   const [scrollIndex, setScrollIndex] = useState(0)
   const [photoPosition, setPhotoPosition] = useState(0)
 
+  const detectHorizontalScroll = useKeyPress('Shift')
+
   useEffect(() => {
     const scrollDistance = 30
 
@@ -35,6 +39,9 @@ export const Insta = () => {
   }, [scrollIndex])
 
   const scrollPhotos = (direction) => {
+    // don't scroll if shift key isn't held!
+    if (!detectHorizontalScroll) return
+
     const arrowRight = direction < 0
     const arrowLeft = direction > 0
 
