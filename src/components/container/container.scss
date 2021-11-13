@@ -1,7 +1,6 @@
 .container-fluid {
   display: flex;
   width: var(--inner-size);
-  padding: 0 20vw;
   align-items: center;
   justify-content: center;
   &.column {
