@@ -164,7 +164,9 @@ export const NavMenu = ({ menuOpen, closeMenu }) => {
         <div className='footer-content'>
           <div className='number'>+84.865.528.252</div>
           <div className='hours'>
-            Mon - Sun • 8:00 - 23:00
+            <span>Mon - Sun</span>&nbsp;
+            <span className='div-dot'>•</span>&nbsp;
+            <span>8:00 - 23:00</span>
           </div>
           <div className='social'>
             <span>
