@@ -42,7 +42,7 @@
         font-weight: var(--xbold);
         text-transform: uppercase;
         transition: var(--transition-3-smooth);
-        &.hovered {
+        &.selected {
           transform: translateX(10%) !important;
           .arrow-wrap {
             transform: translate(10%, -50%);
@@ -50,7 +50,7 @@
               transform: translateX(0);
             }
           }
-        }
+        } 
         .arrow-wrap {
           position: absolute;
           top: 50%;

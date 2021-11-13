@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import debounce from 'just-debounce-it'
@@ -58,7 +58,7 @@ const containerAnimation = {
   visible: {
     opacity: 1,
     transition: {
-      delay: .4,
+      delay: 0.4,
       staggerChildren: 0.12,
     },
   },
@@ -76,20 +76,21 @@ const cascadeAnimation = {
 }
 
 export const NavMenu = ({ menuOpen, closeMenu }) => {
+  // current & selected options are necessary for decoupling video load from item hover state.
   const [currentOption, setCurrentOption] = useState(
     menuOptions[0]
   )
-  const [hoveredOption, setHoveredOption] = useState(null)
+  const [selectedOption, setSelectedOption] = useState(null)
   const [vidCovered, setVidCovered] = useState(true)
 
   const handleItemHover = debounce((idx) => {
     setCurrentOption(menuOptions[idx])
-    setHoveredOption(menuOptions[idx])
+    setSelectedOption(menuOptions[idx])
     setVidCovered(false)
   }, 100)
 
-  const handleHoverEnd = debounce((params) => {
-    setHoveredOption(null)
+  const handleHoverEnd = debounce(() => {
+    setSelectedOption(null)
     setVidCovered(true)
   }, 100)
 
@@ -103,20 +104,25 @@ export const NavMenu = ({ menuOpen, closeMenu }) => {
     >
       <div className='menu'>
         <AnimatePresence>
-          <motion.ul 
+          <motion.ul
             className='menu__options'
             variants={containerAnimation}
             initial='hidden'
             animate='visible'
             exit='hidden'
           >
-            <motion.div className='menu__label' variants={cascadeAnimation}>Menu</motion.div>
+            <motion.div
+              className='menu__label'
+              variants={cascadeAnimation}
+            >
+              Menu
+            </motion.div>
             {menuOptions.map(({ title }, idx) => {
               return (
                 <motion.li
                   className={`option ${
-                    hoveredOption?.title === title
-                      ? 'hovered'
+                    selectedOption?.title === title
+                      ? 'selected'
                       : ''
                   }`}
                   key={title}
