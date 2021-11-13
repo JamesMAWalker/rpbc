@@ -113,7 +113,7 @@
   --title-block-lg: 120px;
   --icon-xs: 17px;
   --icon-sm: 25px;
-  --icon-med: 37px; 
+  --icon-med: 37px;
   --icon-lg: 45px;
   --icon-xl: 55px;
 
@@ -166,17 +166,19 @@
   --text-display: var(--text-6xl);
   --text-prose: var(--text-2xl);
   --text-button: var(--text-3xl);
-
+  --text-feature-title: var(--text-10xl);
+  --text-feature-sub: var(--text-5xl);
+  
   /* spacing */
   --layout-margin-out: var(--vw-md);
   --layout-margin-in: var(--vw-2xl);
   --intrasection-margin: var(--vh-xl);
-  --element-margin: var(--space-xl); 
-
+  --element-margin: var(--space-xl);
+  
   /* container sizing */
   --outer-size: 86vw;
   --inner-size: 54vw;
-
+  
   /* image sizing */
   --feature-img-height: 60vh;
 }
@@ -185,9 +187,18 @@
 
 @media (max-width: 1024px) {
   :root {
-    --text-blurb: var(--text-2xl);
+    /* font sizes */
+    --text-blurb: var(--text-xl);
     --text-section-header-plus: var(--text-9xl);
-    --inner-size: 70vw;
+    --text-feature-title: var(--text-3xl);
+    --text-feature-sub: var(--text-2xl);
+    --text-button: var(--text-xl);
+    
+    /* container sizes */
+    --inner-size: 75vw;
+
+    /* image sizing */
+    --feature-img-height: 25vh;
   }
 }
 @media (min-width: 2160px) {
