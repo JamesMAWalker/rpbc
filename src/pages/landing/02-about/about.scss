@@ -14,8 +14,7 @@
       color: var(--primary);
     }
     @media (max-width: 1024px) {
-      padding: 0;
-      font-size: var(--text-xl);
+      padding: 0 var(--vw-md);
     }
   }
   @media (max-width: 1024px) {
