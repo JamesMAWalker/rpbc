@@ -62,6 +62,9 @@ export const Location = () => {
               className='map'
             />
           </div>
+          <h3 className="location__header--mobile">
+            Where to find us
+          </h3>
           <div className='location__info'>
             <h3 className='location__header'>
               Where to Find Us

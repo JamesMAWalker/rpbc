@@ -4,6 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1024px) {
+    align-items: flex-start;
+    justify-content: center;
+    margin: var(--vh-xl) 0;
+  }
   .container-fluid {
     height: 50vh;
   }
@@ -13,6 +18,14 @@
     display: grid;
     gap: 0 var(--vw-sm);
     grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 20vh repeat(2, 1fr);
+      grid-template-areas:
+        'title'
+        'map'
+        'locations';
+    }
   }
   &__map {
     height: 100%;
@@ -22,22 +35,48 @@
       width: 100%;
       object-fit: cover;
     }
+    @media (max-width: 1024px) {
+      grid-area: map;
+    }
   }
-  &__info{
+  &__info {
     height: 100%;
     display: flex;
     flex-direction: column;
+    @media (max-width: 1024px) {
+      grid-area: locations;
+    }
   }
   &__header {
     height: 15%;
     font-size: var(--text-header);
     margin: 0;
     margin-top: var(--space-lg);
+    &--mobile {
+      display: none;
+    }
+    @media (max-width: 1024px) {
+      display: none;
+       &--mobile {
+         padding-bottom: var(--vh-sm);
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 80%;
+        grid-area: title;
+        font-size: var(--text-feature-title);
+        font-weight: var(--bold);
+        text-transform: uppercase;
+      }
+    }
   }
   &__list {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    @media (max-width: 1024px) {
+      margin-top: var(--vh-md);
+    }
     &--item {
       display: flex;
       align-items: flex-start;
