@@ -43,9 +43,9 @@
     flex-direction: column;
     width: 80%;
     margin: 0;
-    margin-top: calc(-1 * var(--text-10xl));
+    margin-top: calc(-1 * var(--text-feature-title));
     text-transform: uppercase;
-    font-size: var(--text-10xl);
+    font-size: var(--text-feature-title);
     font-weight: var(--xbold);
     line-height: 80%;
   }
