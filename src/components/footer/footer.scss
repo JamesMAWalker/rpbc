@@ -14,17 +14,29 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;  
     justify-content: space-between;
+    @media (max-width: 1024px) {
+      padding-bottom: var(--vh-sm);
+      grid-template-rows: repeat(2, 10vh);
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+        "hours hours"
+        "num   social"
+      ;
+    }
     .number {
       display: flex;
       justify-content: flex-start;
+      grid-area: num;
     }
     .hours {
       display: flex;
       justify-content: center;
+      grid-area: hours;
     }
     .social {
       display: flex;
       justify-content: flex-end;
+      grid-area: social;
       svg {
         height: var(--icon-sm);
         width: var(--icon-sm);
@@ -38,6 +50,9 @@
     text-transform: uppercase;
     span {
       color: var(--grey-40);
+    }
+    @media (max-width: 1024px) {
+      padding-bottom: var(--vh-md);
     }
   }
 }

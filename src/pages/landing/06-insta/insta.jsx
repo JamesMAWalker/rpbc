@@ -89,12 +89,11 @@ export const Insta = () => {
           }}
           onWheel={(e) => {
             if (!detectHorizontalScroll) return
-            
+
             const direction =
               e.nativeEvent.wheelDelta > 1 ? 1 : -1
             // don't scroll if shift key isn't held!
             scrollPhotos(direction)
-            console.log('direction: ', direction)
           }}
         >
           {instaPhotos.map(({ imgUrlFrag }) => {
