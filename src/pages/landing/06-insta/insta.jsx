@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useWindowSize } from 'react-use'
 
 import { Container } from '../../../components/container/container'
 import { ShortArrow } from '../../../components/svg/arrow--short'
@@ -29,19 +30,19 @@ const instaPhotos = [
 export const Insta = () => {
   const [scrollIndex, setScrollIndex] = useState(0)
   const [photoPosition, setPhotoPosition] = useState(0)
+  const [startPos, setStartPos] = useState(0)
 
   const detectHorizontalScroll = useKeyPress('Shift')
+  const { width } = useWindowSize()
+  const isMobile = width < 1024
 
   useEffect(() => {
-    const scrollDistance = 30
+    const scrollDistance = isMobile ? 60 : 30
 
     setPhotoPosition(scrollDistance * scrollIndex)
   }, [scrollIndex])
 
   const scrollPhotos = (direction) => {
-    // don't scroll if shift key isn't held!
-    if (!detectHorizontalScroll) return
-
     const arrowRight = direction < 0
     const arrowLeft = direction > 0
 
@@ -57,8 +58,8 @@ export const Insta = () => {
 
   return (
     <section className='insta'>
-      <Container classes='column aifs'>
-        <div className='insta__section-header'>
+      <Container classes='column aifs of-vis'>
+        <div className='insta__header-pos-wrap'>
           <div className='insta__text'>
             <div className='hashtag'>#deeproots</div>
             <h4 className='text-tag'>
@@ -82,14 +83,18 @@ export const Insta = () => {
           </div>
         </div>
         <div
-          onWheel={(e) => {
-            const direction =
-              e.nativeEvent.wheelDelta > 1 ? 1 : -1
-            scrollPhotos(direction)
-          }}
           className='insta__photos'
           style={{
             transform: `translateX(${photoPosition}vw)`,
+          }}
+          onWheel={(e) => {
+            if (!detectHorizontalScroll) return
+            
+            const direction =
+              e.nativeEvent.wheelDelta > 1 ? 1 : -1
+            // don't scroll if shift key isn't held!
+            scrollPhotos(direction)
+            console.log('direction: ', direction)
           }}
         >
           {instaPhotos.map(({ imgUrlFrag }) => {
