@@ -39,8 +39,9 @@ const locations = [
 ]
 
 export const Location = () => {
-  const [currentLocation, setCurrentLocation] =
-    useState(locations[0])
+  const [currentLocation, setCurrentLocation] = useState(
+    locations[0]
+  )
 
   const setLocation = (idx) => {
     const newLocation = locations[idx]
@@ -61,10 +62,10 @@ export const Location = () => {
               alt='map to currently selected location'
               className='map'
             />
+            <h3 className='location__header--mobile'>
+              Where to find <span className='emph'>us</span>
+            </h3>
           </div>
-          <h3 className="location__header--mobile">
-            Where to find us
-          </h3>
           <div className='location__info'>
             <h3 className='location__header'>
               Where to Find Us
