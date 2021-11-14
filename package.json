@@ -2,7 +2,7 @@
   "name": "rpbc",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite --port 1234",
+    "start": "vite --port 1234 --host",
     "build": "vite build",
     "serve": "vite preview"
   },

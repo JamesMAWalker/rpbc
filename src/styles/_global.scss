@@ -11,6 +11,16 @@ body {
   ::-webkit-scrollbar {
     display: none !important;
   }
+  & > * {
+    ::-moz-selection {
+      color: var(--accent);
+      background-color: transparent;
+    }
+    ::selection {
+      color: var(--accent);
+      background-color: transparent;
+    }
+  }
 }
 
 .App {
