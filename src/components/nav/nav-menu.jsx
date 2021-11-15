@@ -96,11 +96,11 @@ export const NavMenu = ({ menuOpen, closeMenu }) => {
 
   return (
     <motion.nav
+      className='nav-menu'
       variants={slideAnimation}
       initial='hidden'
       animate='visible'
       exit='hidden'
-      className='nav-menu'
     >
       <div className='menu'>
         <AnimatePresence>

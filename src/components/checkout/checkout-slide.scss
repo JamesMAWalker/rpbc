@@ -1,0 +1,19 @@
+.checkout {
+  position: fixed;
+  z-index: var(--level-top-plus);
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  &__close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 5vh;
+    right: 5vh;
+  }
+} 

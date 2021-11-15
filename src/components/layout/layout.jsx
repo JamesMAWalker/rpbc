@@ -7,11 +7,30 @@ import { Footer } from '../footer/footer'
 
 import './layout.scss'
 import { NavMenu } from '../nav/nav-menu'
+import { CheckoutSlide } from '../checkout/checkout-slide'
+import { CheckoutBtn } from '../checkout/checkout-btn'
+
+const checkoutItems = [
+  {
+    name: 'Full English Breakfast',
+    price: 50,
+  },
+  {
+    name: 'Mediterranean Bowl',
+    price: 50,
+  },
+  {
+    name: 'All things Green Bowl',
+    price: 45,
+  },
+]
 
 export const Layout = ({ children }) => {
   const layoutRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [checkoutOpen, setCheckoutOpen] = useState(false)
+  const [itemsInCart, setItemsInCart] = useState(true)
   const { pathname } = useLocation()
 
   // progress bar logic
@@ -49,6 +68,14 @@ export const Layout = ({ children }) => {
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
+        {checkoutOpen && (
+        <CheckoutSlide 
+          closeCheckout={() => setCheckoutOpen(false)} 
+          checkoutOpen={checkoutOpen}
+        />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
         {menuOpen && (
           <NavMenu
             menuOpen={menuOpen}
@@ -59,12 +86,17 @@ export const Layout = ({ children }) => {
       <Header
         menuOpen={menuOpen}
         toggleMenu={setMenuOpen}
-      />
+        />
       {children}
       <div
         className='scroll-progress'
         style={{ width: `${scrollProgress}vw` }}
-      />
+        />
+        <AnimatePresence>
+          {itemsInCart && (
+            <CheckoutBtn items={checkoutItems} openCheckout={() => setCheckoutOpen(true)} />
+          )}
+        </AnimatePresence>
       <Footer />
     </main>
   )
