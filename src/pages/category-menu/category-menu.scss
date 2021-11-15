@@ -5,6 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1024px) {
+    padding-top: calc(var(--layout-margin-in) * 2);
+  }
   &__img-wrap {
     position: relative;
     height: var(--feature-img-height);
@@ -18,9 +21,27 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateY(110%);
+    bottom: -15%;
+    // transform: translateY(110%);
     display: flex;
     align-items: center;
+    @media (max-width: 1024px) {
+      width: 100%;
+      bottom: -60%;
+      right: unset;
+      left: 10%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .note {
+        font-size: var(--text-sm);
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-bottom: var(--space-md);
+      }
+    }
     .note {
       display: flex;
       align-items: center;
@@ -35,9 +56,9 @@
     flex-direction: column;
     width: 80%;
     margin: 0;
-    margin-top: calc(-1 * var(--text-10xl));
+    margin-top: calc(-1 * var(--text-feature-title));
     text-transform: uppercase;
-    font-size: var(--text-10xl) !important;
+    font-size: var(--text-feature-title) !important;
     font-weight: var(--xbold);
     line-height: 80%;
   }
@@ -47,6 +68,11 @@
     padding-top: var(--vh-md);
     font-size: var(--text-2xl);
     font-weight: var(--bold);
+    @media (max-width: 1024px) {
+      width: 100%;
+      padding: 0;
+      padding-top: var(--vh-xl);
+    }
   }
   &__items-grid {
     width: 90%;
@@ -54,11 +80,17 @@
     display: grid;
     gap: var(--vw-sm);
     grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: var(--vh-xl);
+    }
   }
   &__item {
     height: 38vh;
     width: auto;
     background-color: var(--primary);
+    @media (max-width: 1024px) {
+    }
   }
   &__nav-btns {
     width: 100%;
@@ -66,6 +98,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 1024px) {
+      padding-bottom: calc(var(--intrasection-margin) * 2);
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+    }
     button {
       color: var(--white);
       font-size: var(--text-2xl);
@@ -73,6 +114,13 @@
       display: flex;
       align-items: center;
       transform: scale(0.8);
+      @media (max-width: 1024px) {
+        padding: 0;
+        &.prev {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+      }
       &:hover {
         svg {
           transform: translate(-60%, -50%);

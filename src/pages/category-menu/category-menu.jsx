@@ -20,8 +20,13 @@ const categories = [
       </h2>
     ),
     imgUrlFrag: 'smoothie_jmlvoa.png',
-    blurb:
-      'vibrant blends of raw vegan superfoods. Delicious at any time of day.',
+    blurb: (
+      <span>
+        Vibrant blends of raw{' '}
+        <span class='emph'>vegan superfoods.</span>
+        &nbsp; Delicious at any time of day.
+      </span>
+    ),
     notesList: ['RAW', 'NUT'],
     items: [
       {
@@ -144,12 +149,12 @@ export const CategoryMenu = () => {
           )}
         </div>
         <div className='menu__nav-btns'>
-          <button>
+          <button className='prev'>
             <BtnTextArrow direction='left' />
             {/* <ShortArrow filled /> */}
             &nbsp; breakfast
           </button>
-          <button>
+          <button className='next'>
             buddha bowls &nbsp;
             <BtnTextArrow />
             {/* <ShortArrow filled direction='right' /> */}
