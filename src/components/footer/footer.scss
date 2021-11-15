@@ -12,6 +12,7 @@
     width: 60vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "num hours social";
     align-items: center;  
     justify-content: space-between;
     @media (max-width: 1024px) {
