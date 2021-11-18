@@ -2,8 +2,6 @@ import React from 'react'
 import { v4 as uuid }from 'uuid'
 import { BtnTextArrow } from '../../../components/buttons/btn__text-arrow'
 
-import { ShortArrow } from '../../../components/svg/arrow--short'
-
 import './menu-item.scss'
 
 export const MenuItem = ({
@@ -12,12 +10,13 @@ export const MenuItem = ({
   ingredients,
   notes,
   price,
+  category
 }) => {
   
   return (
     <div className='menu-item'>
       <img
-        src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_auto:best/v1635174836/Roots/menu-image/buddha/${imgUrlFrag}.png`}
+        src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_auto:best/v1635174836/Roots/menu-image/${category}/${imgUrlFrag}.png`}
         alt={name}
         className='item-img'
       />

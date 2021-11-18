@@ -44,11 +44,11 @@
     z-index: var(--level-one);
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: var(--feature-title-width);
     margin: 0;
-    margin-top: calc(-1 * var(--text-feature-title));
+    margin-top: calc(-1 * var(--text-feature-title) * .8);
     text-transform: uppercase;
-    font-size: var(--text-feature-title);
+    font-size: calc(var(--text-feature-title) * .8);
     font-weight: var(--xbold);
     line-height: 80%;
     span {

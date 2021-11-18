@@ -16,14 +16,19 @@
   &__img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   &__notes {
     position: absolute;
     bottom: 0;
     right: 0;
-    bottom: -15%;
+    bottom: -30%;
     // transform: translateY(110%);
     display: flex;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: 1fr;
     align-items: center;
     @media (max-width: 1024px) {
       width: 100%;
@@ -58,6 +63,7 @@
     margin: 0;
     margin-top: calc(-1 * var(--text-feature-title));
     text-transform: uppercase;
+    transform: translateX(-5%);
     font-size: var(--text-feature-title) !important;
     font-weight: var(--xbold);
     line-height: 80%;

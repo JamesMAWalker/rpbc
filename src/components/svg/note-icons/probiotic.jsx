@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ProbioticIocn = () => {
+export const ProbioticIcon = () => {
   return (
     <svg
       width='15'

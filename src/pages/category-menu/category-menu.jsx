@@ -3,73 +3,12 @@ import { BtnTextArrow } from '../../components/buttons/btn__text-arrow'
 import { Container } from '../../components/container/container'
 import { GlutenIcon } from '../../components/svg/note-icons/gluten'
 import { NutIcon } from '../../components/svg/note-icons/nut'
-import { ProbioticIocn } from '../../components/svg/note-icons/probiotic'
+import { ProbioticIcon } from '../../components/svg/note-icons/probiotic'
 import { RawIcon } from '../../components/svg/note-icons/raw'
 
 import './category-menu.scss'
 import { MenuItem } from './menu-item/menu-item'
 
-const categories = [
-  {
-    id: 'smoothie-bowls',
-    title: (
-      <h2>
-        Smoothie <br /> Bowls
-      </h2>
-    ),
-    imgUrlFrag: 'smoothie_jmlvoa.png',
-    blurb: (
-      <span>
-        Vibrant blends of raw{' '}
-        <span class='emph'>vegan superfoods.</span>
-        &nbsp; Delicious at any time of day.
-      </span>
-    ),
-    notesList: ['RAW', 'NUT'],
-    items: [
-      {
-        name: 'Back to the Roots',
-        imgUrlFrag: 'mango-edit_gqvxgk',
-        ingredients:
-          'Turmeric, mango, ginger, banana, passionfruit, raw dehydrated granola, chia seeds, shredded coconut.',
-        notes: ['RAW', 'NUT'],
-        price: '65',
-      },
-      {
-        name: 'Tropical Pitaya',
-        imgUrlFrag: 'pitaya-edit_nsxvzb',
-        ingredients:
-          'Red dragonfruit, mango, banana, coconut milk, raw dehydrated granola, chia seeds, shredded coconut.',
-        notes: ['RAW', 'NUT'],
-        price: '65',
-      },
-      {
-        name: 'Cacao Dream',
-        imgUrlFrag: 'cocoa-edit_ios4e3',
-        ingredients:
-          'Organic cacao, orange, cashew milk, peanutbutter, cashews, shredded coconuts, raw dehydrated granola',
-        notes: ['NUT'],
-        price: '65',
-      },
-      {
-        name: 'My Khe Beach',
-        imgUrlFrag: 'spirulina-edit_bp4bzx',
-        ingredients:
-          'Organic spirulina, lime, vanilla, cashewbutter, banana, raw dehyrdrated granola, chia seeds, coconut',
-        notes: ['NUT'],
-        price: '75',
-      },
-      {
-        name: 'Super AÇAI Berry',
-        imgUrlFrag: 'acai-edit_rjajs7',
-        ingredients:
-          'Organic açai berry, apple, cavendish banana, organic almond, raw dehydrated granola, shredded coconut',
-        notes: ['RAW', 'NUT'],
-        price: '110',
-      },
-    ],
-  },
-]
 
 const foodNotes = {
   NUT: {
@@ -78,7 +17,7 @@ const foodNotes = {
   },
   PRO: {
     text: 'Probiotic',
-    icon: <ProbioticIocn />,
+    icon: <ProbioticIcon />,
   },
   GLT: {
     text: 'Gluten Free',
@@ -90,9 +29,12 @@ const foodNotes = {
   },
 }
 
-export const CategoryMenu = () => {
-  const { id, title, blurb, imgUrlFrag, notesList, items } =
-    categories[0]
+export const CategoryMenu = ({ items, info }) => {
+  console.log('items: ', items)
+  console.log('info: ', info)
+  // console.log('props from menu: ', props);
+  // const { items: menuItems, info } = props;
+  const { id, title, blurb, imgUrlFrag, notesList } = info
 
   const notesContent = notesList.map(
     (note) => foodNotes[note]
@@ -104,7 +46,7 @@ export const CategoryMenu = () => {
         <div className='menu__img-wrap'>
           <div className='darkening-shade' />
           <img
-            src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_80/v1635080999/Roots/menu-image/${imgUrlFrag}`}
+            src={`https://res.cloudinary.com/jameswalker-work/image/upload/v1634895951/Roots/feature-image/${imgUrlFrag}.png`}
             alt={id}
             className='menu__img'
           />
@@ -127,6 +69,7 @@ export const CategoryMenu = () => {
               ingredients,
               notes,
               price,
+              category
             }) => {
               const noteContent = notes.map(
                 (note) => foodNotes[note].icon
@@ -140,6 +83,7 @@ export const CategoryMenu = () => {
                     ingredients={ingredients}
                     notes={noteContent}
                     price={price}
+                    category={category}
                   />
                 </div>
               )

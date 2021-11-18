@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "name": "Back to the Roots",
+      "category": "smoothies",
+      "imgUrlFrag": "mango-edit_gqvxgk",
+      "ingredients": "Turmeric, mango, ginger, banana, passionfruit, raw dehydrated granola, chia seeds, shredded coconut.",
+      "notes": ["RAW", "NUT"],
+      "price": "65"
+    },
+    {
+      "name": "Tropical Pitaya",
+      "category": "smoothies",
+      "imgUrlFrag": "pitaya-edit_nsxvzb",
+      "ingredients": "Red dragonfruit, mango, banana, coconut milk, raw dehydrated granola, chia seeds, shredded coconut.",
+      "notes": ["RAW", "NUT"],
+      "price": "65"
+    },
+    {
+      "name": "Cacao Dream",
+      "category": "smoothies",
+      "imgUrlFrag": "cocoa-edit_ios4e3",
+      "ingredients": "Organic cacao, orange, cashew milk, peanutbutter, cashews, shredded coconuts, raw dehydrated granola",
+      "notes": ["NUT"],
+      "price": "65"
+    },
+    {
+      "name": "My Khe Beach",
+      "category": "smoothies",
+      "imgUrlFrag": "spirulina-edit_bp4bzx",
+      "ingredients": "Organic spirulina, lime, vanilla, cashewbutter, banana, raw dehyrdrated granola, chia seeds, coconut",
+      "notes": ["NUT"],
+      "price": "75"
+    },
+    {
+      "name": "Super AÇAI Berry",
+      "category": "smoothies",
+      "imgUrlFrag": "acai-edit_rjajs7",
+      "ingredients": "Organic açai berry, apple, cavendish banana, organic almond, raw dehydrated granola, shredded coconut",
+      "notes": ["RAW", "NUT"],
+      "price": "110"
+    },
+    {
+      "name": "Japanese Nori Bowl",
+      "category": "buddha",
+      "imgUrlFrag": "nori-edit_iq4qp3",
+      "ingredients": "Veggie nori roll, wakame, edamame, shiso, grated daikon, pickled young ginger, turmeric tofu, sauteed shiitake, pepitas, romaine, cucumber, white sesame seeds, forbidden rice, topped with ginger sesame dressing.",
+      "notes": ["RAW", "NUT"],
+      "price": "100"
+    },
+    {
+      "name": "Japanese Nori Bowl",
+      "category": "buddha",
+      "imgUrlFrag": "nori-edit_iq4qp3",
+      "ingredients": "Veggie nori roll, wakame, edamame, shiso, grated daikon, pickled young ginger, turmeric tofu, sauteed shiitake, pepitas, romaine, cucumber, white sesame seeds, forbidden rice, topped with ginger sesame dressing.",
+      "notes": ["RAW", "NUT"],
+      "price": "100"
+    },
+    {
+      "name": "Japanese Nori Bowl",
+      "category": "buddha",
+      "imgUrlFrag": "nori-edit_iq4qp3",
+      "ingredients": "Green herb falafels, hummous, tofu feta cheese, lime, olives, grapes, walnuts, romaine, tabbouleh made with organic quinoa, kale, lime, and mint, topped with tahini lime dressing",
+      "notes": ["RAW", "NUT"],
+      "price": "100"
+    },
+    {
+      "name": "Avocado Toast",
+      "category": "toast",
+      "imgUrlFrag": "avo-edit_r4kwcn",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW", "NUT"],
+      "price": "100"
+    },
+    {
+      "name": "Avocado Toast",
+      "category": "toast",
+      "imgUrlFrag": "avo-edit_r4kwcn",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW", "NUT"],
+      "price": "100"
+    },
+    {
+      "name": "Jackson Burger",
+      "category": "burger",
+      "imgUrlFrag": "nori-edit_iq4qp3",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW", "NUT"],
+      "price": "90"
+    },
+    {
+      "name": "Blackbean Burger",
+      "category": "burger",
+      "imgUrlFrag": "nori-edit_iq4qp3",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW", "NUT"],
+      "price": "120"
+    },
+    {
+      "name": "Deep Roots",
+      "category": "juice",
+      "imgUrlFrag": "mango-edit_gqvxgk",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW"],
+      "price": "60"
+    },
+    {
+      "name": "Yoga & Shine",
+      "category": "juice",
+      "imgUrlFrag": "mango-edit_gqvxgk",
+      "ingredients": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+      "notes": ["RAW"],
+      "price": "50"
+    }
+  ]
+}

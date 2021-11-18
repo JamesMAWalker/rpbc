@@ -7,30 +7,9 @@ import './nav-menu.scss'
 import { Arrow } from '../svg/arrow'
 import { Facebook } from '../svg/facebook'
 import { Instagram } from '../svg/instagram'
+import { categories as menuOptions } from '../../mock-API/category-data.json'
 
-const menuOptions = [
-  {
-    title: 'Smoothie Bowls',
-    vidUrlFrag: 'Smoothie-Bowls--crop_j1mctn',
-  },
-  {
-    title: 'Breakfast',
-    vidUrlFrag: 'cutting-beets_s5nbl7.mp4',
-  },
-  {
-    title: 'Burgers',
-    vidUrlFrag: 'juices_yrgjsj.mp4',
-  },
-  {
-    title: 'Buddha Bowls',
-    vidUrlFrag: 'cutting-beets_s5nbl7.mp4',
-  },
-  {
-    title: 'Coldpressed Juice',
-    vidUrlFrag: 'juices_yrgjsj.mp4',
-  },
-]
-
+// Animations
 const slideAnimation = {
   visible: {
     x: 0,
@@ -75,7 +54,8 @@ const cascadeAnimation = {
   },
 }
 
-export const NavMenu = ({ menuOpen, closeMenu }) => {
+
+export const NavMenu = ({ closeMenu }) => {
   // current & selected options are necessary for decoupling video load from item hover state.
   const [currentOption, setCurrentOption] = useState(
     menuOptions[0]
@@ -117,7 +97,7 @@ export const NavMenu = ({ menuOpen, closeMenu }) => {
             >
               Menu
             </motion.div>
-            {menuOptions.map(({ title }, idx) => {
+            {menuOptions.map(({ title, id: slug }, idx) => {
               return (
                 <motion.li
                   className={`option ${
@@ -134,7 +114,7 @@ export const NavMenu = ({ menuOpen, closeMenu }) => {
                   <span className='arrow-wrap'>
                     <Arrow />
                   </span>
-                  <Link to='/menu'>{title}</Link>
+                  <Link to={`/menu/${slug}`}>{title}</Link>
                 </motion.li>
               )
             })}

@@ -7,7 +7,7 @@ import './daily-fave.scss'
 
 const favorites = [
   {
-    imgUrlFrag: 'roots__bowl_u3isxx.jpg',
+    imgUrlFrag: 'bowl__alt_yd9ebm',
     title: 'Falafel Mezze Bowl',
     shortTitle: 'Mezze Bowl',
     price: '100,000',
@@ -36,7 +36,7 @@ export const DailyFave = () => {
           <div className="darkening-shade"/>
           <img
             className='fave__img'
-            src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_auto:good/v1634895950/Roots/feature-image/${imgUrlFrag}`}
+            src={`https://res.cloudinary.com/jameswalker-work/image/upload/f_auto,q_auto:good/v1634895950/Roots/feature-image/${imgUrlFrag}.png`}
             alt={title}
           />
         </div>

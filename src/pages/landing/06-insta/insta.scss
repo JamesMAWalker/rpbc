@@ -15,10 +15,11 @@
     justify-content: space-between;
   }
   &__text {
-    font-size: var(--text-8xl);
     font-size: var(--text-feature-title);
-    font-size: var(--text-4xl);
     line-height: 80%;
+    @media (max-width: 1024px) {
+      font-size: var(--text-4xl);
+    }
     .hashtag {
       margin-bottom: var(--element-margin);
       font-weight: var(--light);
@@ -32,6 +33,7 @@
   }
   &__nav-arrows {
     display: flex;
+    transform: translateY(100%);
     :first-child {
       margin-right: var(--space-3xl);
     }

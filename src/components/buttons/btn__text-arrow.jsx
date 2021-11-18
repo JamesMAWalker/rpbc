@@ -8,11 +8,11 @@ export const BtnTextArrow = ({ children, direction }) => {
   const left = direction === 'left' ? 'rotate(180deg)' : 'rotate(0deg)'
   
   return (
-    <button className='btn__text-arrow' style={{ transform: left }}>
+    <span className='btn__text-arrow' style={{ transform: left }}>
       { children }{' '}
       <span className='arrow-wrap'>
         <Arrow />
       </span>
-    </button>
+    </span>
   )
 }

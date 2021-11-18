@@ -1,0 +1,42 @@
+{"categories": [
+  {
+    "id": "smoothies",
+    "title": "Smoothie Bowls",
+    "imgUrlFrag": "smoothie_rp8hdm",
+    "vidUrlFrag": "Smoothie-Bowls--crop_j1mctn",
+    "blurb": "Vibrant blends of raw vegan superfoods. Delicious at any time of day.",
+    "notesList": ["RAW", "NUT"]
+  },
+  {
+    "id": "buddha",
+    "title": "Buddha Bowls",
+    "imgUrlFrag": "bowl__alt_yd9ebm",
+    "vidUrlFrag": "cutting-beets_s5nbl7.mp4",
+    "blurb": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+    "notesList": ["RAW", "NUT", "GLT"]
+  },
+  {
+    "id": "burger",
+    "title": "Sandwiches& Burgers",
+    "imgUrlFrag": "burger__feature_iuwrfv",
+    "vidUrlFrag": "juices_yrgjsj.mp4",
+    "blurb": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+    "notesList": ["RAW", "NUT", "GLT"]
+  },
+  {
+    "id": "toast",
+    "title": "Breakfast Toast",
+    "imgUrlFrag": "toast_ieewxn",
+    "vidUrlFrag": "cutting-beets_s5nbl7.mp4",
+    "blurb": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+    "notesList": ["RAW", "NUT", "GLT"]
+  },
+  {
+    "id": "juice",
+    "title": "Coldpress Juices",
+    "imgUrlFrag": "juice__alt_wanv96",
+    "vidUrlFrag": "juices_yrgjsj.mp4",
+    "blurb": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, explicabo?",
+    "notesList": ["RAW", "NUT", "GLT"]
+  }
+]}
