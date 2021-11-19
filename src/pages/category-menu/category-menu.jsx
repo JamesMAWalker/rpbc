@@ -9,7 +9,6 @@ import { RawIcon } from '../../components/svg/note-icons/raw'
 import './category-menu.scss'
 import { MenuItem } from './menu-item/menu-item'
 
-
 const foodNotes = {
   NUT: {
     text: 'Contains Nuts',
@@ -30,9 +29,7 @@ const foodNotes = {
 }
 
 export const CategoryMenu = ({ items, info }) => {
-  console.log('items: ', items)
-  console.log('info: ', info)
-  // console.log('props from menu: ', props);
+  //
   // const { items: menuItems, info } = props;
   const { id, title, blurb, imgUrlFrag, notesList } = info
 
@@ -69,7 +66,7 @@ export const CategoryMenu = ({ items, info }) => {
               ingredients,
               notes,
               price,
-              category
+              category,
             }) => {
               const noteContent = notes.map(
                 (note) => foodNotes[note].icon

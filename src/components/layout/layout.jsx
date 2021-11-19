@@ -1,37 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react'
+import {
+  useContext, 
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
+import { OrderContext } from '../../contexts/order-context'
+
 import { Header } from '../header/header'
 import { Footer } from '../footer/footer'
-
-import './layout.scss'
 import { NavMenu } from '../nav/nav-menu'
 import { CheckoutSlide } from '../checkout/checkout-slide'
 import { CheckoutBtn } from '../checkout/checkout-btn'
 
-const checkoutItems = [
-  {
-    name: 'Full English Breakfast',
-    price: 50,
-  },
-  {
-    name: 'Mediterranean Bowl',
-    price: 50,
-  },
-  {
-    name: 'All things Green Bowl',
-    price: 45,
-  },
-]
+import './layout.scss'
 
 export const Layout = ({ children }) => {
   const layoutRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [checkoutOpen, setCheckoutOpen] = useState(false)
-  const [itemsInCart, setItemsInCart] = useState(true)
   const { pathname } = useLocation()
+
+  const [checkoutOpen, setCheckoutOpen] = useState(false)
+  const { checkout } = useContext(OrderContext)
 
   // progress bar logic
   useEffect(() => {
@@ -44,7 +37,7 @@ export const Layout = ({ children }) => {
       setScrollProgress((currentScroll / maxScroll) * 100.1)
     })
     return () => {
-      window.removeEventListener('scroll')
+      window.removeEventListener('scroll', () => {})
     }
   }, [])
 
@@ -93,8 +86,8 @@ export const Layout = ({ children }) => {
         style={{ width: `${scrollProgress}vw` }}
         />
         <AnimatePresence>
-          {itemsInCart && (
-            <CheckoutBtn items={checkoutItems} openCheckout={() => setCheckoutOpen(true)} />
+          {checkout.length > 0 && (
+            <CheckoutBtn items={checkout} openCheckout={() => setCheckoutOpen(true)} />
           )}
         </AnimatePresence>
       <Footer />

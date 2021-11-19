@@ -9,27 +9,42 @@ export const CheckoutBtn = ({ items, openCheckout }) => {
   const { width } = useWindowSize()
   const isMobile = width < 1024
 
-  const [total, setTotal] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalQty, setTotalQty] = useState(0)
 
   useEffect(() => {
     const getTotal = (items) => {
-      const prices = items.map((item) => item.price)
+      const prices = items.map(({ price, qty}) => price * qty)
       return prices.reduce((acc, cv) => acc + cv)
     }
 
-    setTotal(getTotal(items))
+    const getQty = (items) => {
+      const currQty = items.map(({ qty }) => qty)
+      return currQty.reduce((acc, cv) => acc + cv)
+    }
+
+    setTotalPrice(getTotal(items))
+    setTotalQty(getQty(items))
   }, [items])
 
   return (
-    <button className='checkout-button'
-     onClick={openCheckout}
+    <button
+      className='checkout-button'
+      onClick={openCheckout}
     >
       <BagIcon />
       <div className='num-items'>
-        <span className='number'>{items.length}</span>&nbsp;
+        <span className='number'>{totalQty}</span>&nbsp;
         {!isMobile && <span>items</span>}
       </div>
-      {!isMobile && <span className='total'>{total},000₫</span>}
+      {!isMobile && (
+        <span className='total'>
+          {new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+          }).format(totalPrice * 1000)}
+        </span>
+      )}
     </button>
   )
 }
