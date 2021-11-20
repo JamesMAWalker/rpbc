@@ -27,23 +27,7 @@ export const OrderProvider = ({ children }) => {
     - Need to initialize checkout to local storage
     - Once in LS, begin adding methods to adjust checkout contents
   */
-  const [checkout, setCheckout] = useState([
-    // {
-    //   name: 'Item1',
-    //   price: 50,
-    //   qty: 0,
-    // },
-    // {
-    //   name: 'Item2',
-    //   price: 50,
-    //   qty: 0,
-    // },
-    // {
-    //   name: 'Item3',
-    //   price: 25,
-    //   qty: 0,
-    // },
-  ])
+  const [checkout, setCheckout] = useState([])
 
   // const testItem = {
   //   name: "Item2",
@@ -57,7 +41,8 @@ export const OrderProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    if (checkout.length > 0) console.log("something changed!", checkout);
+    if (checkout.length > 0)
+      console.log('something changed!', checkout)
   }, [checkout])
 
   const removeItemFromCheckout = (item) => {}
@@ -71,7 +56,10 @@ export const OrderProvider = ({ children }) => {
       return item
     })
     setCheckout(adjustedCheckout)
-    console.log("Cart after attempting to update item qty: ", checkout);
+    console.log(
+      'Cart after attempting to update item qty: ',
+      checkout
+    )
   }
 
   return (

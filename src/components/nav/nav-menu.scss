@@ -47,7 +47,7 @@
       .option {
         position: relative;
         width: max-content;
-        font-size: var(--text-header-plus);
+        font-size: var(--text-header);
         font-weight: var(--xbold);
         text-transform: uppercase;
         transition: var(--transition-3-smooth);
@@ -56,7 +56,7 @@
           .arrow-wrap {
             transform: translate(10%, -50%);
             svg {
-              transform: translateX(0);
+              transform: translateX(-15%) scale(.95);
             }
           }
         }
@@ -67,11 +67,16 @@
           transform: translateY(-50%);
           height: 5vh;
           width: 4vw;
-          overflow: hidden;
+          overflow-x: hidden;
           transition: var(--transition-3-smooth);
           svg {
+            height: 5vh;
             transform: translateX(-100%);
             transition: var(--transition-3-smooth);
+            overflow: visible;
+          }
+          path {
+            overflow: visible;
           }
         }
         @media (max-width: 1024px) {

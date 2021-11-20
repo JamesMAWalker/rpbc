@@ -12,7 +12,8 @@
       margin-left: var(--space-md);
       height: 35px;
       width: 35px;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: visible;
     }
     svg {
       position: absolute;
