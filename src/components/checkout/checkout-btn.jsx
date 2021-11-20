@@ -3,6 +3,8 @@ import { useWindowSize } from 'react-use'
 
 import { BagIcon } from '../svg/bag-icon'
 
+import { numToVnd } from '../../utils/currency-format'
+
 import './checkout-btn.scss'
 
 export const CheckoutBtn = ({ items, openCheckout }) => {
@@ -39,10 +41,7 @@ export const CheckoutBtn = ({ items, openCheckout }) => {
       </div>
       {!isMobile && (
         <span className='total'>
-          {new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-          }).format(totalPrice * 1000)}
+          {numToVnd(totalPrice * 1000)}
         </span>
       )}
     </button>

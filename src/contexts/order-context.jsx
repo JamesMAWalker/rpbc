@@ -24,6 +24,7 @@ export const OrderProvider = ({ children }) => {
     - Feature item needs ability to add items to checkout
 
     ! Progress Bookmark !
+    - Create checkout item component for checkout slide
     - Need to initialize checkout to local storage
     - Once in LS, begin adding methods to adjust checkout contents
   */
@@ -40,18 +41,13 @@ export const OrderProvider = ({ children }) => {
     setCheckout(newCheckout)
   }
 
-  useEffect(() => {
-    if (checkout.length > 0)
-      console.log('something changed!', checkout)
-  }, [checkout])
-
-  const removeItemFromCheckout = (item) => {}
+  const removeItemFromCheckout = (itemName) => {}
 
   const adjustItemQty = (adjustedItemName) => {
     const adjustedCheckout = checkout.map((item) => {
       if (item.name === adjustedItemName) {
         item.qty = item.qty + 1
-        console.log(item.name, "'s qty adjusted")
+        
       }
       return item
     })

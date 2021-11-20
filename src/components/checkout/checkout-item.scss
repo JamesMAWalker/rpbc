@@ -1,0 +1,68 @@
+.item {
+  width: calc(100% - var(--vh-md));
+  padding-left: var(--vh-sm);
+  margin-bottom: var(--vh-sm);
+  border-left: 4px solid var(--white);
+  border-left: 4px solid var(--accent);
+  overflow-x: visible;
+  &__info {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    &-left {
+      width: 45%;
+      display: flex;
+      align-items: flex-start;
+      font-size: var(--text-md);
+      font-weight: var(--bold);
+      text-transform: uppercase;
+    }
+    &-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-lg);
+      font-weight: var(--xbold);
+      -webkit-text-stroke-color: var(--white);
+      -webkit-text-stroke-width: 1px;
+      color: transparent;
+      transform: scale(1.1);
+    }
+  }
+  &__actions {
+    width: 100%;
+    margin-top: var(--vh-sm);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &__qty-adj {
+    padding: var(--space-sm) 0;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-md);
+    & > * {
+      color: var(--accent);
+      font-size: var(--text-lg);
+    }
+    button {
+      cursor: pointer;
+      transition: var(--transition-3-smooth);
+      &:hover {
+        transform: scale(1.15) rotate(360deg);
+        transform-origin: center;
+      }
+    }
+  }
+  &__delete {
+    cursor: pointer;
+    margin-right: var(--vh-sm);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

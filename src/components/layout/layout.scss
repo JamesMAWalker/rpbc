@@ -16,11 +16,20 @@
   .scroll-progress {
     z-index: var(--level-eight);
     position: fixed;
-    content: "";
+    content: '';
     bottom: 0;
     left: 0;
     height: 3px;
     background-color: var(--primary);
     transition: var(--transition-2-smooth);
+  }
+  .modal-shade {
+    z-index: var(--level-top);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--black-fade-40);
   }
 }

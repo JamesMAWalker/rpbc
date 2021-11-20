@@ -5,7 +5,7 @@ import {
   useState,
 } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { OrderContext } from '../../contexts/order-context'
 
@@ -51,21 +51,40 @@ export const Layout = ({ children }) => {
     const close = (e) => {
       if (e.keyCode === 27) {
         setMenuOpen(false)
+        setCheckoutOpen(false)
       }
     }
     window.addEventListener('keydown', close)
     return () =>
       window.removeEventListener('keydown', close)
-  }, [menuOpen])
+  }, [])
+
+  // Stop scroll while menu/checkout is open
+  useEffect(() => {
+    if (checkoutOpen || menuOpen) {
+      document.documentElement.style.overflow = 'hidden'
+    } else {
+      document.documentElement.style.overflow = 'scroll'
+    }
+  }, [checkoutOpen, menuOpen])
 
   return (
     <main className='layout' ref={layoutRef}>
       <AnimatePresence>
         {checkoutOpen && (
-        <CheckoutSlide 
-          closeCheckout={() => setCheckoutOpen(false)} 
-          checkoutOpen={checkoutOpen}
-        />
+          <>
+            <CheckoutSlide
+              closeCheckout={() => setCheckoutOpen(false)}
+              checkoutOpen={checkoutOpen}
+            />
+            <motion.div 
+              className="modal-shade"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setCheckoutOpen(false)}
+            />
+          </>
         )}
       </AnimatePresence>
       <AnimatePresence>
@@ -79,17 +98,20 @@ export const Layout = ({ children }) => {
       <Header
         menuOpen={menuOpen}
         toggleMenu={setMenuOpen}
-        />
+      />
       {children}
       <div
         className='scroll-progress'
         style={{ width: `${scrollProgress}vw` }}
-        />
-        <AnimatePresence>
-          {checkout.length > 0 && (
-            <CheckoutBtn items={checkout} openCheckout={() => setCheckoutOpen(true)} />
-          )}
-        </AnimatePresence>
+      />
+      <AnimatePresence>
+        {checkout.length > 0 && (
+          <CheckoutBtn
+            items={checkout}
+            openCheckout={() => setCheckoutOpen(true)}
+          />
+        )}
+      </AnimatePresence>
       <Footer />
     </main>
   )

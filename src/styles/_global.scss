@@ -9,7 +9,13 @@ body {
   color: var(--text-color);
   letter-spacing: 1px;
   ::-webkit-scrollbar {
-    display: none !important;
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    width: 0px;
+    background-color: var(--white-fade-20);
+    border-radius: var(--radius-rounded);
   }
   & > * {
     ::-moz-selection {
