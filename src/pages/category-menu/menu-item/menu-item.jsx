@@ -29,7 +29,7 @@ export const MenuItem = ({
     }
 
     if (alreadyInCheckout) {
-      adjustItemQty(name)
+      adjustItemQty(name, 1)
     } else {
       addItemToCheckout(itemToAdd)
     }

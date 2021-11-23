@@ -1,10 +1,35 @@
-import React from 'react'
+import { useContext, useEffect, useState } from 'react'
+
+import { OrderContext } from '../../contexts/order-context'
+
+import { numToVndNoSymb } from '../../utils/currency-format'
 
 import { TrashIcon } from '../svg/trash'
 
 import './checkout-item.scss'
 
 export const CheckoutItem = ({ qty, name, price }) => {
+  /*
+    TODO: 
+    - Add a "remove this item?" slide out when delete button is clicked
+    - Add a max qty notifier if user reaches 10 of a given item
+  */
+
+  const {
+    adjustItemQty,
+    checkout,
+    removeItemFromCheckout,
+  } = useContext(OrderContext)
+
+  const [qtySubDisabled, setQtySubDisabled] = useState(false)
+
+  useEffect(() => {
+    checkout
+    if (qty <= 1) {
+      setQtySubDisabled(true)
+    }
+  }, [qty])
+
   return (
     <div className='item'>
       <div className='item__info'>
@@ -15,19 +40,31 @@ export const CheckoutItem = ({ qty, name, price }) => {
         </div>
         <div className='item__info-right'>
           <span className='item__price'>
-            {new Intl.NumberFormat('vi-VN', {
-              currency: 'VND',
-            }).format(price * 1000)}
+            {numToVndNoSymb(price * 1000)}
           </span>
         </div>
       </div>
       <div className='item__actions'>
         <div className='item__qty-adj'>
-          <button className='qty-sub'>-</button>
+          <button
+            disabled={qtySubDisabled}
+            className='qty-sub'
+            onClick={() => adjustItemQty(name, -1)}
+          >
+            -
+          </button>
           <span className='item__adj-qty'>{qty}</span>
-          <button className='qty-sub'>+</button>
+          <button
+            className='qty-add'
+            onClick={() => adjustItemQty(name, 1)}
+          >
+            +
+          </button>
         </div>
-        <div className='item__delete'>
+        <div
+          className='item__delete'
+          onClick={() => removeItemFromCheckout(name)}
+        >
           <TrashIcon />
         </div>
       </div>

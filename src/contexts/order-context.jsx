@@ -9,19 +9,15 @@ const defaultValues = {
 
 export const OrderContext = createContext(defaultValues)
 
+const isBrowser = typeof window !== `undefined`
+const localStorageKey = `roots_cukcuk_checkout_id`
+
 export const OrderProvider = ({ children }) => {
   /*
     + How should item be defined?
       Items will eventually come from a CMS, therefore, data will be 
       defined in a separate data file, and replaced with CMS API call 
       once teh CMS has been loaded with data.  
-
-    - Checkout button should not appear unless items are in checkout
-    - Checkout button needs awareness of checkout items
-    - Checkout slider needs awareness of checkout items
-    - Checkout slider needs ability to alter checkout 
-    - Menu item needs ability to add items to checkout
-    - Feature item needs ability to add items to checkout
 
     ! Progress Bookmark !
     - Create checkout item component for checkout slide
@@ -30,32 +26,69 @@ export const OrderProvider = ({ children }) => {
   */
   const [checkout, setCheckout] = useState([])
 
-  // const testItem = {
-  //   name: "Item2",
-  //   price: 50,
-  //   qty: 0,
-  // }
+  /*
+    Checkout flow:
+    - On site load, check if checkoutID exists in localStorage
+      + If NOT: set checkout as empty array but with JSON.stringify
+      + If YES: get checkout and setCheckout using JSON.parse
+    - On addition of an item, add to checkout local state, but also 
+  */
+
+  const setLSCheckout = (checkout) => {
+    if (!isBrowser) return
+
+    const newCheckout = JSON.stringify(checkout)
+    localStorage.setItem(localStorageKey, newCheckout)
+  }
+
+  useEffect(() => {
+    const initializeCheckout = () => {
+      if (!isBrowser) return
+
+      const existingCheckout =
+        localStorage.getItem(localStorageKey)
+
+      if (existingCheckout) {
+        const parsedCheckout = JSON.parse(existingCheckout)
+        try {
+          setCheckout(parsedCheckout)
+          return
+        } catch (err) {
+          console.log('Error setting checkout: ', err)
+        }
+      } else {
+        setLSCheckout(checkout)
+      }
+    }
+
+    initializeCheckout()
+  }, [])
+
+  useEffect(() => {
+    // Sync checkout updates between local state/storage
+    setLSCheckout(checkout)
+  }, [checkout])
 
   const addItemToCheckout = (item) => {
     const newCheckout = [...checkout, item]
     setCheckout(newCheckout)
   }
 
-  const removeItemFromCheckout = (itemName) => {}
+  const removeItemFromCheckout = (itemName) => {
+    const updatedCheckout = checkout.filter(
+      (item) => item.name !== itemName
+    )
+    setCheckout(updatedCheckout)
+  }
 
-  const adjustItemQty = (adjustedItemName) => {
+  const adjustItemQty = (adjustedItemName, crement) => {
     const adjustedCheckout = checkout.map((item) => {
       if (item.name === adjustedItemName) {
-        item.qty = item.qty + 1
-        
+        item.qty = item.qty + crement
       }
       return item
     })
     setCheckout(adjustedCheckout)
-    console.log(
-      'Cart after attempting to update item qty: ',
-      checkout
-    )
   }
 
   return (

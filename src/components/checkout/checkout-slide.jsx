@@ -81,11 +81,14 @@ export const CheckoutSlide = ({
   const [discount, setDiscount] = useState(0)
 
   useEffect(() => {
-    const getTotal = (items) => {
+    const getTotal = () => {
       const prices = checkout.map(
         ({ price, qty }) => price * qty
       )
-      return prices.reduce((acc, cv) => acc + cv)
+      const total = checkout.length > 0 
+        ? prices.reduce((acc, cv) => acc + cv)
+        : 0
+      return total 
     }
 
     setTotalPrice(getTotal(checkout))
@@ -107,14 +110,16 @@ export const CheckoutSlide = ({
       </div>
       <h3 className='checkout__header'>Your Order</h3>
       <div className='checkout__items'>
-        {checkout.map(({ qty, name, price }) => (
+        {checkout.length > 0 ? (checkout.map(({ qty, name, price }) => (
           <CheckoutItem
             key={uuid()}
             qty={qty}
             name={name}
             price={price}
           />
-        ))}
+        ))) : (
+          "Cart is Empty"
+        )}
       </div>
       <div className='checkout__summary'>
         <div className='subtotal'>
@@ -137,7 +142,7 @@ export const CheckoutSlide = ({
             {numToVnd((totalPrice - discount) * 1000)}
           </span>
         </div>
-        <button className='complete-btn'>
+        <button className='complete-btn' disabled={checkout.length < 1}>
           <div className='arrow-wrap'>
             <Arrow />
           </div>

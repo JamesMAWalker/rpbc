@@ -9,7 +9,7 @@ export const GlutenIcon = () => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0)'>
+      <g clipPath='url(#clip0)'>
         <path
           d='M8.12451 11.6836L9.37458 10.8013V9.26343L8.12451 10.1457V11.6836Z'
           fill='var(--accent)'

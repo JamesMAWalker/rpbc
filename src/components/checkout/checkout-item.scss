@@ -52,6 +52,10 @@
     button {
       cursor: pointer;
       transition: var(--transition-3-smooth);
+      &:disabled {
+        cursor: initial;
+        opacity: .25;
+      }
       &:hover {
         transform: scale(1.15) rotate(360deg);
         transform-origin: center;

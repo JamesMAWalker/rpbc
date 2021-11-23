@@ -1,11 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useWindowSize } from 'react-use'
+import { motion } from 'framer-motion'
 
 import { BagIcon } from '../svg/bag-icon'
 
 import { numToVnd } from '../../utils/currency-format'
 
 import './checkout-btn.scss'
+
+const fadeSlideAnimation = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    
+  },
+  hidden: {
+    opacity: 0,
+    x: "25vw",
+    
+  },
+}
 
 export const CheckoutBtn = ({ items, openCheckout }) => {
   const { width } = useWindowSize()
@@ -15,6 +29,8 @@ export const CheckoutBtn = ({ items, openCheckout }) => {
   const [totalQty, setTotalQty] = useState(0)
 
   useEffect(() => {
+    if (items.length < 1) return
+
     const getTotal = (items) => {
       const prices = items.map(({ price, qty}) => price * qty)
       return prices.reduce((acc, cv) => acc + cv)
@@ -30,9 +46,13 @@ export const CheckoutBtn = ({ items, openCheckout }) => {
   }, [items])
 
   return (
-    <button
+    <motion.button
       className='checkout-button'
       onClick={openCheckout}
+      variants={fadeSlideAnimation}
+      initial='hidden'
+      animate='visible'
+      exit='hidden'
     >
       <BagIcon />
       <div className='num-items'>
@@ -44,6 +64,6 @@ export const CheckoutBtn = ({ items, openCheckout }) => {
           {numToVnd(totalPrice * 1000)}
         </span>
       )}
-    </button>
+    </motion.button>
   )
 }

@@ -123,6 +123,15 @@
       align-items: center;
       justify-content: flex-start;
       overflow: hidden;
+      &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+        &:hover {
+          & > * {
+            transform: translateX(-3vw) !important;
+          }
+        }
+      }
       &:hover {
         & > * {
           transform: translateX(-0.5vw);
