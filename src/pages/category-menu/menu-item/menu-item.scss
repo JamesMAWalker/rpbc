@@ -7,11 +7,17 @@
     color: var(--primary);
     line-height: 85%;
   }
+  .item-img {
+    @media (max-width: 1024px) {
+      width: 60vw;
+    }
+  }
   .item-ingredients {
     width: 75%;
     height: 25%;
     font-weight: var(--bold);
     @media (max-width: 1024px) {
+      width: auto;
     }
   }
   .item-notes {

@@ -87,6 +87,7 @@
     gap: var(--vw-sm);
     grid-template-columns: repeat(3, 1fr);
     @media (max-width: 1024px) {
+      width: auto;
       grid-template-columns: 1fr;
       gap: var(--vh-xl);
     }
