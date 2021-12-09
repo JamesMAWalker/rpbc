@@ -3,6 +3,7 @@ import React from 'react'
 export const BagIcon = () => {
   return (
     <svg
+      className="bag-icon"
       width='27'
       height='27'
       viewBox='0 0 27 27'

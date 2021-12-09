@@ -17,4 +17,24 @@
   &:hover {
     transform: scale(1.1);
   }
+  @media (max-width: 1024px) {
+    width: auto;
+    .num-items {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      margin-left: var(--space-sm);
+      color: var(--white);
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-52%, -45%) scale(1.2);
+        border-bottom: 1px solid var(--white);
+      }
+    }
+    .bag-icon {
+      min-width: 25px;
+    }
+  }
 }
