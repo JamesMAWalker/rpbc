@@ -1,5 +1,18 @@
 import { createContext, useEffect, useState } from 'react'
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+} from '@apollo/client'
 
+
+// Items from GraphAPI
+const client = new ApolloClient({
+  uri: 'https://api.spacex.land/graphql/',
+  cache: new InMemoryCache(),
+})
+
+// Local item handling
 const defaultValues = {
   checkout: [],
   addItem: () => {},
@@ -41,6 +54,7 @@ export const OrderProvider = ({ children }) => {
     localStorage.setItem(localStorageKey, newCheckout)
   }
 
+  // Initialize Checkout in LS
   useEffect(() => {
     const initializeCheckout = () => {
       if (!isBrowser) return
@@ -64,8 +78,8 @@ export const OrderProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
+  // Sync checkout updates between local state/storage
   useEffect(() => {
-    // Sync checkout updates between local state/storage
     setLSCheckout(checkout)
   }, [checkout])
 
@@ -100,7 +114,9 @@ export const OrderProvider = ({ children }) => {
         adjustItemQty,
       }}
     >
-      {children}
+      <ApolloProvider client={client}>
+        {children}
+      </ApolloProvider>
     </OrderContext.Provider>
   )
 }

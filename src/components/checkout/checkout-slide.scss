@@ -13,8 +13,11 @@
   justify-content: flex-start;
   background-color: var(--primary);
   @media (max-width: 1024px) {
+    height: calc(100vh - var(--vh-md) - 5px);
     width: calc(100vw - (var(--vw-md) * 2));
     padding: 0 var(--vw-md);
+    padding-top: var(--vh-md);
+    border-bottom: 5px solid var(--accent);
   }
   &__close-btn {
     cursor: pointer;

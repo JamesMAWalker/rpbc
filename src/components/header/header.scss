@@ -2,10 +2,12 @@
   z-index: var(--level-top);
   position: fixed;
   width: 86vw;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 7vh 7vw;
+  padding: 3vh 5vw;
   & > * {
     cursor: pointer;
   }

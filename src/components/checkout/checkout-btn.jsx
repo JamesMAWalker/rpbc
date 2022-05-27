@@ -17,7 +17,6 @@ const fadeSlideAnimation = {
   hidden: {
     opacity: 0,
     x: "25vw",
-    
   },
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { BtnTextArrow } from '../../components/buttons/btn__text-arrow'
 import { Container } from '../../components/container/container'
 import { GlutenIcon } from '../../components/svg/note-icons/gluten'
@@ -28,9 +29,9 @@ const foodNotes = {
   },
 }
 
+
 export const CategoryMenu = ({ items, info }) => {
-  //
-  // const { items: menuItems, info } = props;
+  
   const { id, title, blurb, imgUrlFrag, notesList } = info
 
   const notesContent = notesList.map(

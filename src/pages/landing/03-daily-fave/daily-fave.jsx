@@ -28,7 +28,7 @@ export const DailyFave = () => {
     <section className='fave'>
       <Container classes='column'>
         <div className='fave__img-wrap'>
-          <h3 className='desc-title'>
+          <h3 className='desc-title'> 
             <span>Our</span>
             <span>Daily</span>
             <span className='emph'>Favorite</span>

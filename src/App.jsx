@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useQuery, gql } from "@apollo/client";
 
 import { Layout } from './components/layout/layout'
 import { Landing } from './pages/landing/landing'
@@ -10,6 +11,16 @@ import './styles/_imports.scss'
 
 import { items as menuItems } from './mock-API/item-data.json'
 import { categories } from './mock-API/category-data.json'
+
+
+const QUERY = gql`
+  {
+    launchesPast(limit: 10) {
+      id
+      mission_name
+    }
+  }
+`
 
 const routes = [
   {
@@ -34,6 +45,14 @@ const routes = [
 ]
 
 function App() {
+  const { data, loading, error } = useQuery(QUERY)
+  console.log('apollo loading from App: ', loading);
+  if (!loading) {
+    console.log('apollo data from App: ', data);
+    console.log('apollo error from App: ', error);
+    
+  }
+
   return (
     <div className='App'>
       <Layout>
